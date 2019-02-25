@@ -1,0 +1,85 @@
+
+<style>
+h1{
+  text-align:center;
+  color:white;
+  background:blue;
+}
+h2{
+    
+    color:black;
+    font-family:"Baskerville Old Face";
+    font-size:22px;
+    text-decoration:none;
+    text-shadow:1px 1px 0px white;  
+    margin:20px;
+    display: inline-block;
+}
+.card-img-top{
+  height:200px;
+  weight:100px;
+}
+footer{
+  background: black;
+  padding:15px;
+}
+footer p{
+  text-align:center;
+  color:white;
+}
+</style>
+<br>
+
+<center>
+<h2><td><a href="">Home</a><a href="">Movie </a><a href="">Hobbie</a><a href="">Contact</a>
+<input type="text" style="width:260px;"/><input type="submit" value="search"/></p>
+</td>
+</tr>
+</h2>
+<center>
+<div class="container">   
+<% if !flash[:notice].blank? %>   
+   <div>   
+      <%= flash[:notice] %>   
+   </div>   
+<% end %>   
+  <h1><b>Jorah Indian Movie Company Ltd<b></h1>  
+  
+<center><b><u><h4><%= link_to "New Bollywood", new_bollywood_path %></h4></u></b></center>   
+<br>   
+<br>   
+    
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row">
+      <% @bollywoods.each do |bollywood| %> 
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+          <img src="<%= bollywood.attachment %>" class="card-img-top" alt="card img cap"> 
+      
+            <div class="card-body">
+              <p class="card-text"><b>Title:</b><%= bollywood.title %><br><b>category:</b><%= bollywood.category %><br><b>Year:</b><%= bollywood.year %><br><b>Price:</b><%= bollywood.price %></p>
+             <b><u><%= link_to "Download", bollywood.attachment_url %></u></b>
+               <b><u><%= link_to "Delete",  bollywood, method: :delete, confirm: "Are you sure you want to delete #{bollywood.attachment}?" %></u></b>
+              </div>
+            </div>
+          </div>
+              <% end %>   
+        </div>
+        <br>
+        <br>
+    
+<footer class="text-muted">
+  <div class="container">
+    <p class="float-right"> </p>
+    <p><b> INFORMATION TECHNOLOGY @ 2019</b> </p>
+    <p>@right and Designed by Jackson HAKIZIMANA @ 2019 </p>
+
+  </div>
+</footer>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script>window.jQuery || document.write('<script src="/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')</script><script src="/docs/4.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script></body>
+
+
